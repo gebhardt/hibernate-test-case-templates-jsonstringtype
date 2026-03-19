@@ -11,6 +11,7 @@
         <version.com.h2database>2.4.240</version.com.h2database>
         <version.junit>4.13.2</version.junit>
         <version.org.hibernate.orm>6.6.44.Final</version.org.hibernate.orm>
+        <version.lombok>1.18.32</version.lombok>
     </properties>
 
     <dependencyManagement>
@@ -37,6 +38,23 @@
         </dependency>
 
         <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.17.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${version.lombok}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.hypersistence</groupId>
+            <artifactId>hypersistence-utils-hibernate-63</artifactId>
+            <version>3.15.2</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-testing</artifactId>
             <scope>test</scope>
@@ -57,6 +75,13 @@
                 <version>3.15.0</version>
                 <configuration>
                     <release>11</release>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${version.lombok}</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
         </plugins>
